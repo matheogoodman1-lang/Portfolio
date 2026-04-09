@@ -100,6 +100,84 @@
         opacity: 0.6;
       }
 
+      /* Couche d'eclairs bleu fonce */
+      .bg-animation .lightning-layer {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 2;
+        overflow: hidden;
+      }
+
+      .bg-animation .lightning-flash {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 25% 28%, rgba(30, 64, 175, 0.2) 0%, rgba(30, 64, 175, 0.08) 20%, transparent 55%),
+          radial-gradient(circle at 76% 34%, rgba(37, 99, 235, 0.22) 0%, rgba(37, 99, 235, 0.08) 20%, transparent 55%),
+          radial-gradient(circle at 52% 78%, rgba(29, 78, 216, 0.16) 0%, rgba(29, 78, 216, 0.06) 20%, transparent 58%);
+        opacity: 0;
+        animation: storm-flash 9s infinite;
+        filter: blur(2px);
+      }
+
+      .bg-animation .bolt {
+        position: absolute;
+        width: 3px;
+        height: 150px;
+        border-radius: 999px;
+        opacity: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(96, 165, 250, 0),
+          rgba(96, 165, 250, 0.95) 32%,
+          rgba(59, 130, 246, 0.7) 70%,
+          rgba(30, 64, 175, 0)
+        );
+        box-shadow:
+          0 0 10px rgba(59, 130, 246, 0.7),
+          0 0 18px rgba(30, 64, 175, 0.6);
+        transform-origin: top center;
+      }
+
+      .bg-animation .bolt::before {
+        content: "";
+        position: absolute;
+        top: 42%;
+        left: -10px;
+        width: 22px;
+        height: 3px;
+        border-radius: 999px;
+        background: rgba(96, 165, 250, 0.78);
+        transform: rotate(34deg);
+        box-shadow: 0 0 10px rgba(59, 130, 246, 0.45);
+      }
+
+      .bg-animation .bolt-1 {
+        top: 8%;
+        left: 18%;
+        transform: rotate(15deg);
+        animation: lightning-strike 7.5s infinite;
+      }
+
+      .bg-animation .bolt-2 {
+        top: 16%;
+        right: 22%;
+        height: 130px;
+        transform: rotate(-13deg);
+        animation: lightning-strike 8.2s infinite;
+        animation-delay: 2.1s;
+      }
+
+      .bg-animation .bolt-3 {
+        top: 36%;
+        left: 66%;
+        height: 120px;
+        transform: rotate(9deg);
+        animation: lightning-strike 10s infinite;
+        animation-delay: 4.4s;
+      }
+
       .bg-animation .orb-1 {
         width: 600px;
         height: 600px;
@@ -209,6 +287,33 @@
         }
         80% {
           transform: translate(40px, 30px) scale(0.94);
+        }
+      }
+
+      @keyframes storm-flash {
+        0%, 24%, 26%, 54%, 56%, 100% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 0.36;
+        }
+        55% {
+          opacity: 0.24;
+        }
+      }
+
+      @keyframes lightning-strike {
+        0%, 18%, 20%, 100% {
+          opacity: 0;
+        }
+        18.7% {
+          opacity: 0.95;
+        }
+        19.2% {
+          opacity: 0.35;
+        }
+        19.6% {
+          opacity: 0.82;
         }
       }
 
@@ -394,6 +499,7 @@
       .hero-name {
         background: linear-gradient(to right, #4f46e5, #22d3ee);
         -webkit-background-clip: text;
+        background-clip: text;
         color: transparent;
       }
 
@@ -1141,6 +1247,12 @@
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
       <div class="orb orb-4"></div>
+      <div class="lightning-layer">
+        <div class="lightning-flash"></div>
+        <div class="bolt bolt-1"></div>
+        <div class="bolt bolt-2"></div>
+        <div class="bolt bolt-3"></div>
+      </div>
     </div>
 
     <!-- NAVIGATION -->
@@ -1231,7 +1343,7 @@
             <div class="hero-badges">
               <span class="tag primary">Étudiant BTS SIO SISR Cybersécurité</span>
               <span class="tag">Administration systèmes & réseaux; Applicatif</span>
-              <span class="tag">Veille technologique IA  dans la cybersécurité </span>
+              <span class="tag">Veille IA dans le domaine de l'audiovisuel</span>
             </div>
 
             <div class="hero-stats">
@@ -1241,21 +1353,21 @@
               </div>
               <div>
                 <div class="stat-label">Compétences clés</div>
-                <div class="stat-value">HTML • CSS • Python • VPN • DHCP • DNS • Firewall • Antivirus • Backup • Recovery • Cloud • IA</div>
+                <div class="stat-value"> switch • VPN • DHCP • DNS • Firewall • Antivirus • Backup • Recovery • Cloud • IA</div>
               </div>
             </div>
 
             <div class="hero-footer">
               <p>
                 Vous retrouverez ci-dessous mon CV, mes projets réalisés en
-                formation et en autonomie, ainsi que ma veille sur l’IA dans la cybersécurité.
+                formation et en autonomie, ainsi que ma veille sur l’IA dans le domaine de l'audiovisuel.
               </p>
               <div class="hero-cta-buttons" aria-label="CV et LinkedIn">
-                <a href="img/MATHEO GOODMAN cv licence pro (1).pdf" class="btn-cv" target="_blank" rel="noopener">
+                <a href="img/MATHEO.GOODMAN CV.pdf" class="btn-cv" target="_blank" rel="noopener">
                   <i class="fa-solid fa-file-lines"></i>
                   CV
                 </a>
-                <a href="https://www.linkedin.com/in/matheo-goodman-b4abba2b1" class="btn-linkedin" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/matheo-goodman" class="btn-linkedin" target="_blank" rel="noopener noreferrer">
                   <i class="fa-brands fa-linkedin-in"></i>
                   LinkedIn
                 </a>
@@ -1296,7 +1408,7 @@
               Sur ce portfolio, je présente mes <strong>projets</strong>, mon
               <strong>parcours</strong> et une
               <strong>veille technologique</strong> orientée autour de
-              l’intelligence artificielle dans la cybersécurité.
+              l’intelligence artificielle dans l’audiovisuel.
             </p>
 
             <div class="chip-row">
@@ -1323,7 +1435,7 @@
 
             <div class="card-split">
               <div>
-                <h4>Option SISR</h4>
+                <h4>Option SISR (mon choix)</h4>
                 <ul class="list-bullets">
                   <li>
                     <i class="fa-solid fa-circle"></i>
@@ -1340,7 +1452,7 @@
                 </ul>
               </div>
               <div>
-                <h4>Option SLAM (mon choix)</h4>
+                <h4>Option SLAM </h4>
                 <ul class="list-bullets">
                   <li>
                     <i class="fa-solid fa-circle"></i>
@@ -1590,7 +1702,7 @@
             </article>
           </a>
 
-          <a href="img/glpi.pdf" class="project-card-link" title="Voir le projet : ticket & supervision">
+          <a href="img/glpi (1).pdf" class="project-card-link" title="Voir le projet : ticket & supervision">
             <article class="project-card" data-category="autre">
             <div class="project-meta">
               <div>
@@ -1677,10 +1789,10 @@
       <div class="container">
         <div class="section-header">
           <div class="section-kicker">Veille technologique 📔</div>
-          <h2 class="section-title">L’intelligence artificielle & cybersécurité seront au  cœur de ma veille</h2>
+          <h2 class="section-title">L’intelligence artificielle dans l’audiovisuel sera au cœur de ma veille</h2>
           <p class="section-subtitle">
             Ma veille porte sur la question&nbsp;:
-            <strong>Quel est le futur de l’intelligence artificielle  dans la cybersécurité&nbsp;?</strong>
+            <strong>Quel est le futur de l’IA dans la production audiovisuelle&nbsp;?</strong>
           </p>
         </div>
 
@@ -1696,7 +1808,8 @@
             <p>
               Pour ma veille, j’utilise des <strong>newsletters</strong>,
               <strong>sites spécialisés</strong> et <strong>flux RSS</strong>
-              afin de suivre l’actualité de l’IA dans la cybersécurité, ses usages, ses risques.
+              afin de suivre l’actualité de l’IA dans l’audiovisuel, ses usages, sa qualité,
+              et ses risques (droits, deepfakes, désinformation).
             </p>
 
             <div class="veille-theme">
@@ -1708,68 +1821,58 @@
                 </li>
                 <li>
                   <i class="fa-solid fa-circle"></i>
-                  <span>Sites d’actualités high-tech et IA</span>
+                  <span>Actualités IA &amp; média (vidéo, audio, streaming)</span>
                 </li>
                 <li>
                   <i class="fa-solid fa-circle"></i>
-                  <span>Articles de blogs techniques &amp; documentations</span>
+                  <span>Articles techniques, cas d’usage et documentations</span>
                 </li>
               </ul>
             </div>
 
             <div class="veille-theme">
-              <h4>Flux RSS IA &amp; Cybersécurité</h4>
+              <h4>Sites à suivre (IA &amp; Audiovisuel)</h4>
               <p style="margin-bottom: 0.8rem; font-size: 0.85rem; color: var(--text-muted);">
-                Sources que je consulte régulièrement pour ma veille sur l’IA dans la cybersécurité. Cliquez pour vous abonner dans Feedly, Inoreader ou tout lecteur RSS.
+                Liens vers des pages web <strong>accessible à tous</strong> que je consulte régulièrement pour ma veille
+                sur l’IA appliquée à la vidéo et à l’audio (journaux, émissions, cinéma/TV, post-production).
+                L’objectif est de suivre des articles récents (généralement 2024+).
               </p>
               <ul class="veille-rss-list">
                 <li>
-                  <a href="https://feeds.feedburner.com/TheHackersNews" target="_blank" rel="noopener noreferrer" title="S'abonner au flux">
-                    <i class="fa-solid fa-rss"></i> The Hacker News
+                  <a href="https://nofilmschool.com/topics/ai" target="_blank" rel="noopener noreferrer" title="Voir la rubrique IA">
+                    <i class="fa-solid fa-up-right-from-square"></i> No Film School — IA
                   </a>
-                  <span>Actualités cybersécurité</span>
+                  <span>IA &amp; production vidéo : outils, workflows, post-prod, analyses (cinéma/creator)</span>
                 </li>
                 <li>
-                  <a href="https://www.darkreading.com/rss.xml" target="_blank" rel="noopener noreferrer" title="S'abonner au flux">
-                    <i class="fa-solid fa-rss"></i> Dark Reading
+                  <a href="https://www.indiewire.com/tag/artificial-intelligence/" target="_blank" rel="noopener noreferrer" title="Voir les articles IA">
+                    <i class="fa-solid fa-up-right-from-square"></i> IndieWire — Artificial Intelligence
                   </a>
-                  <span>Cybersécurité, IA, menaces</span>
+                  <span>Actualités cinéma/TV (industrie, festivals) + sujets IA et impact sur la création</span>
                 </li>
                 <li>
-                  <a href="https://krebsonsecurity.com/feed/" target="_blank" rel="noopener noreferrer" title="S'abonner au flux">
-                    <i class="fa-solid fa-rss"></i> Krebs on Security
+                  <a href="https://variety.com/t/artificial-intelligence/" target="_blank" rel="noopener noreferrer" title="Voir les articles IA">
+                    <i class="fa-solid fa-up-right-from-square"></i> Variety — Artificial Intelligence
                   </a>
-                  <span>Sécurité &amp; investigations</span>
+                  <span>Actualités film : production, studios, technologies (IA, VFX, droits)</span>
                 </li>
                 <li>
-                  <a href="https://www.bleepingcomputer.com/feed/" target="_blank" rel="noopener noreferrer" title="S'abonner au flux">
-                    <i class="fa-solid fa-rss"></i> BleepingComputer
+                  <a href="https://www.hollywoodreporter.com/tag/ai/" target="_blank" rel="noopener noreferrer" title="Voir les articles IA">
+                    <i class="fa-solid fa-up-right-from-square"></i> The Hollywood Reporter — AI
                   </a>
-                  <span>Actualités tech &amp; cybersécurité</span>
+                  <span>Cinéma/TV : industrie, production, et sujets IA (droits, grèves, outils, usages)</span>
                 </li>
                 <li>
-                  <a href="https://www.zdnet.com/topic/security/rss.xml" target="_blank" rel="noopener noreferrer" title="S'abonner au flux">
-                    <i class="fa-solid fa-rss"></i> ZDNet Security
+                  <a href="https://www.bbc.com/news/technology" target="_blank" rel="noopener noreferrer" title="Voir la rubrique Technologie">
+                    <i class="fa-solid fa-up-right-from-square"></i> BBC News — Technology
                   </a>
-                  <span>Sécurité, IA, entreprises</span>
+                  <span>IA &amp; médias : deepfakes, outils créatifs, plateformes, régulation</span>
                 </li>
                 <li>
-                  <a href="https://www.cyberscoop.com/feed/" target="_blank" rel="noopener noreferrer" title="S'abonner au flux">
-                    <i class="fa-solid fa-rss"></i> Cyberscoop
+                  <a href="https://www.soundonsound.com/news" target="_blank" rel="noopener noreferrer" title="Voir les actualités">
+                    <i class="fa-solid fa-up-right-from-square"></i> Sound On Sound — News
                   </a>
-                  <span>Cybersécurité, politique, IA</span>
-                </li>
-                <li>
-                  <a href="https://www.securityweek.com/feed/" target="_blank" rel="noopener noreferrer" title="S'abonner au flux">
-                    <i class="fa-solid fa-rss"></i> SecurityWeek
-                  </a>
-                  <span>Cybersécurité &amp; menaces</span>
-                </li>
-                <li>
-                  <a href="https://www.helpnetsecurity.com/feed/" target="_blank" rel="noopener noreferrer" title="S'abonner au flux">
-                    <i class="fa-solid fa-rss"></i> Help Net Security
-                  </a>
-                  <span>Vulnérabilités, IA, menaces</span>
+                  <span>Audio : production, mixage, outils (dont IA audio, restauration, séparation)</span>
                 </li>
               </ul>
             </div>
@@ -1779,31 +1882,58 @@
             <h3>Thèmes de ma veille</h3>
             <ul class="veille-list">
               <li>
-                <strong>Thème 1&nbsp;: Quel est le rôle de l'IA dans la cybersécurité&nbsp;?</strong>
+                <strong>Thème 1&nbsp;: Comment l’IA change le montage et la post-production&nbsp;?</strong>
                 <span>
-                  Définitions, grands principes, différences entre
-                  <em>IA faible</em> et <em>IA forte</em>, et exemples
-                  d'IA dans la cybersécurité actuelles.
+                  Assistants de montage, détection de scènes, génération de rough cuts,
+                  suggestions de cuts, et automatisation de tâches répétitives.
                 </span>
-                <small>Sources : articles spécialisés, sites d’entreprises tech…</small>
+                <small>Sources : NLE, studios, blogs techniques et retours d’usage</small>
               </li>
               <li>
-                <strong>Thème 2&nbsp;: Faut-il supprimer l'IA pour mieux la protéger nos données&nbsp;?</strong>
+                <strong>Thème 2&nbsp;: Comment l’IA améliore l’accessibilité et la recherche dans le contenu&nbsp;?</strong>
                 <span>
-                  Risques liés à l’utilisation malveillante de l’IA, à la
-                  désinformation, à la surveillance et à l’impact sur l’emploi.
+                  Sous-titrage automatique, transcription, chapitrage, OCR, indexation sémantique,
+                  et recherche “par moment” dans les vidéos/audio.
                 </span>
-                <small>Sources : presse généraliste &amp; dossiers thématiques.</small>
+                <small>Sources : recherche (STT), acteurs médias, articles d’ingénierie</small>
               </li>
               <li>
-                <strong>Thème 3&nbsp;: Pourquoi l’IA peut être bénéfique&nbsp;?</strong>
+                <strong>Thème 3&nbsp;: Enjeux de droits, deepfakes et confiance dans les médias synthétiques&nbsp;?</strong>
                 <span>
-                  IA dans la médecine, la cybersécurité, les transports, les
-                  services publics… et comment elle peut aider les humains.
+                  Origine des contenus, traçabilité, watermarking, consentement, qualité audio/vidéo,
+                  et limites pour réduire les usages frauduleux.
                 </span>
-                <small>Sources : acteurs de la santé, éditeurs de solutions IA…</small>
+                <small>Sources : guidelines, cadres éthiques, articles de recherche &amp; conformité</small>
               </li>
             </ul>
+
+            <div class="veille-theme">
+              <h4>Exemples d’outils IA dans l’audiovisuel</h4>
+              <p>
+                Deux exemples concrets d’outils qui intègrent de l’IA et qui transforment des étapes clés
+                de la post-production (montage, VFX, compositing).
+              </p>
+              <ul class="list-bullets">
+                <li>
+                  <i class="fa-solid fa-circle"></i>
+                  <span>
+                    <strong>Adobe Premiere Pro</strong> : l’IA aide à accélérer le <em>montage</em> et la
+                    <em>post-production</em> (ex. transcription et sous-titrage, recherche dans les rushs,
+                    détection/sélection de segments, amélioration de l’audio, assistance sur des tâches répétitives).
+                    L’objectif est de gagner du temps tout en gardant le contrôle créatif.
+                  </span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle"></i>
+                  <span>
+                    <strong>Wonder Dynamics</strong> : outil orienté VFX qui permet d’intégrer plus facilement
+                    des <em>personnages 3D</em> dans des plans filmés, avec des automatismes (suivi, éclairage,
+                    compositing/relighting selon les scènes). Cela aide à produire des séquences “VFX-ready” plus vite,
+                    surtout pour des petites équipes.
+                  </span>
+                </li>
+              </ul>
+            </div>
           </article>
         </div>
       </div>
